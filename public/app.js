@@ -1,5 +1,5 @@
 // Config
-const API_BASE = ''; // mismo host/puerto del backend Express
+const API_BASE = 'https://evaluacion-final-desarrollo-web-oscar.onrender.com'; // mismo host/puerto del backend Express
 
 // Utilidades
 function setAuthStatus(text, ok = false) {
