@@ -2,13 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const mssql = require('mssql');
 require('dotenv').config();
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 // Proxy endpoints a Azure APIs
 const AUTH_URL = 'https://backcvbgtmdesa.azurewebsites.net/api/login/authenticate';
