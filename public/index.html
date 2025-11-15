@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat UMG — Examen Final</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <i class="bi bi-chat-dots"></i>
+          <span>Chat UMG</span>
+        </a>
+        <span class="navbar-text" id="auth-status">No autenticado</span>
+      </div>
+    </nav>
+
+    <main class="container my-4">
+      <ul class="nav nav-pills mb-3" id="view-tabs">
+        <li class="nav-item"><a class="nav-link active" href="#" data-view="login">Login</a></li>
+        <li class="nav-item"><a class="nav-link disabled" href="#" data-view="send" aria-disabled="true">Enviar</a></li>
+        <li class="nav-item"><a class="nav-link disabled" href="#" data-view="messages" aria-disabled="true">Mensajes</a></li>
+      </ul>
+      <!-- Login -->
+      <section id="view-login" class="card shadow-sm mb-4">
+        <div class="card-header">Autenticación</div>
+        <div class="card-body">
+          <form id="login-form" class="row g-3">
+            <div class="col-md-6">
+              <label for="login-username" class="form-label">Usuario (antes de @miumg.edu.gt)</label>
+              <input type="text" class="form-control" id="login-username" placeholder="ctezop" required />
+            </div>
+            <div class="col-md-6">
+              <label for="login-password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="login-password" value="123456a" required />
+            </div>
+            <div class="col-12 d-flex gap-2">
+              <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+              <button type="button" class="btn btn-outline-secondary" id="logout-btn" disabled>Salir</button>
+            </div>
+            <div class="col-12">
+              <div id="login-feedback" class="small text-muted"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Enviar mensaje (protegido) -->
+      <section id="view-send" class="card shadow-sm mb-4 d-none">
+        <div class="card-header">Enviar mensaje</div>
+        <div class="card-body">
+          <form id="message-form" class="row g-3">
+            <div class="col-12">
+              <label for="message-content" class="form-label">Contenido</label>
+              <textarea class="form-control" id="message-content" rows="3" placeholder="Escribe tu mensaje" disabled required></textarea>
+            </div>
+            <div class="col-12 d-flex gap-2">
+              <button type="submit" class="btn btn-success" id="send-btn" disabled>Enviar</button>
+              <button type="button" class="btn btn-outline-secondary" id="clear-btn">Limpiar</button>
+            </div>
+            <div class="col-12">
+              <div id="message-feedback" class="small text-muted"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Mensajes -->
+      <section id="view-messages" class="card shadow-sm d-none">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <span class="d-flex align-items-center gap-2"><i class="bi bi-inbox"></i> Mensajes</span>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-primary" id="refresh-btn"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
+            <span class="badge text-bg-light" id="msg-count">0</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="messages-pane" class="messages-pane border rounded bg-body-tertiary">
+            <div id="messages-list" class="list-group list-group-flush"></div>
+          </div>
+          <div class="mt-2"><div id="messages-feedback" class="small text-muted"></div></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

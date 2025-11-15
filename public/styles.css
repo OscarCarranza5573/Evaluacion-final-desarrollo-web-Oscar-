@@ -1,0 +1,33 @@
+body { min-height: 100vh; }
+#messages-list .list-group-item { border-left: 4px solid #0d6efd; }
+
+/* Panel de mensajes */
+.messages-pane {
+  height: 50vh;
+  overflow: auto;
+  padding: 0.5rem;
+}
+
+/* Burbujas de chat */
+.chat-bubble {
+  max-width: 75%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  margin: 0.25rem 0;
+}
+.chat-bubble.me {
+  margin-left: auto;
+  background: #d1e7dd; /* success-subtle */
+  border: 1px solid #badbcc;
+}
+.chat-bubble.other {
+  margin-right: auto;
+  background: #e7f1ff; /* primary-subtle */
+  border: 1px solid #cfe2ff;
+}
+.chat-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #6c757d;
+}
